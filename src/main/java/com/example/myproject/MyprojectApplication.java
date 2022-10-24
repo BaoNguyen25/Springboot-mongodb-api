@@ -9,7 +9,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import java.math.BigDecimal;
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class MyprojectApplication {
 
 			//usingMongoTemplateAndQuery(studentRepository, mongoTemplate, email, student);
 			studentRepository.findStudentByEmail(email)
-					.ifPresentOrElse(s -> {System.out.println(s + " already existed!");},
+					.ifPresentOrElse(s -> System.out.println(s + " already existed!"),
 							() -> {
 								studentRepository.insert(student);
 								System.out.println("Inserted " + student);
